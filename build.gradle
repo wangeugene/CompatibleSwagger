@@ -2,7 +2,13 @@ plugins {
     id 'java'
 }
 
-group = 'org.example'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+group = 'org.eugene'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -14,6 +20,8 @@ dependencies {
 //    implementation 'org.springframework.boot:spring-boot-starter-web:2.3.10.RELEASE'
 //    implementation 'io.springfox:springfox-swagger2:2.9.2'
 //    implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+    // These dependencies are tested for version compatibilities
 //    implementation 'org.springframework.boot:spring-boot-starter-web:2.4.0'
 //    implementation 'io.springfox:springfox-swagger-ui:3.0.0'
 //    implementation 'io.springfox:springfox-swagger2:3.0.0'
@@ -22,10 +30,14 @@ dependencies {
     // And above need to add specific configuration class
 
     // http://localhost:8080/v3/api-docs http://localhost:8080/swagger-ui/index.html
-    implementation 'org.yaml:snakeyaml:2.0'
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
+    // The following 3 lines are enough to get the swagger-ui working
+//    - http://localhost:8080/v3/api-docs
+//    - http://localhost:8080/swagger-ui.html
+//    implementation 'org.yaml:snakeyaml:2.0'
+//    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.12'
+//    implementation 'org.springdoc:springdoc-openapi-ui:1.6.12'
 
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.2'
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
